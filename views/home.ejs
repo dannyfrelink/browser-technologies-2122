@@ -6,23 +6,31 @@
 </head>
 
 <body>
-    <h1>
-        Enquete Minor Web Development
-    </h1>
-    <form action="">
+    <header>
+        <h1>
+            Enquête Minor Web Development
+        </h1>
+        <p>
+            Leuk dat je ervoor hebt gekozen om jouw mening te delen over de minor. We hebben een aantal vragen per vak
+            opgesteld, waar wij graag meer over willen weten. Begin hieronder door jouw persoonsgegevens in te vullen en
+            de enquête te starten.
+        </p>
+    </header>
+    <form action="/wafs" method="post">
         <fieldset>
             <br>
             <legend>Persoonsgegevens</legend>
             <label for="">Naam:</label>
             <br>
-            <input type="text">
+            <input type="text" required>
             <br>
             <br>
             <label for="">Nummer:</label>
             <br>
-            <input type="text">
+            <input type="text" required>
             <br>
             <br>
+            <input type="submit" value="Start enquête">
         </fieldset>
     </form>
 </body>
