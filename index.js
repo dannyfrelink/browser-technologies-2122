@@ -9,16 +9,28 @@ app.get('/', (req, res) => {
     res.render('home');
 })
 
-app.get('/wafs', (req, res) => {
-    res.render('wafs');
-})
-
 app.post('/wafs', (req, res) => {
     res.render('wafs');
 })
 
 app.post('/css', (req, res) => {
     res.render('css');
+})
+
+app.post('/pwa', (req, res) => {
+    res.render('pwa');
+})
+
+app.post('/bt', (req, res) => {
+    res.render('bt');
+})
+
+app.post('/rtw', (req, res) => {
+    res.render('rtw');
+})
+
+app.post('/hcd', (req, res) => {
+    res.render('hcd');
 })
 
 app.use((req, res) => {
