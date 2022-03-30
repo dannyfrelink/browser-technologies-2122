@@ -6,34 +6,30 @@
 </head>
 
 <body>
-    <header>
-        <h1>
-            Enquête Minor Web Development
-        </h1>
+    <%- include('layout/header'); %>
         <p>
             Leuk dat je ervoor hebt gekozen om jouw mening te delen over de minor. We hebben een aantal vragen per vak
             opgesteld, waar wij graag meer over willen weten. Begin hieronder door jouw persoonsgegevens in te vullen en
             de enquête te starten.
         </p>
-    </header>
-    <form action="/wafs" method="post">
-        <fieldset>
+        <form action="/wafs" method="post">
+            <fieldset>
+                <br>
+                <legend>Persoonsgegevens</legend>
+                <label for="name">Naam:</label>
+                <br>
+                <input id="name" type="text" required>
+                <br>
+                <br>
+                <label for="number">Nummer:</label>
+                <br>
+                <input id="number" type="text" required>
+                <br>
+                <br>
+            </fieldset>
             <br>
-            <legend>Persoonsgegevens</legend>
-            <label for="name">Naam:</label>
-            <br>
-            <input id="name" type="text" required>
-            <br>
-            <br>
-            <label for="number">Nummer:</label>
-            <br>
-            <input id="number" type="text" required>
-            <br>
-            <br>
-        </fieldset>
-        <br>
-        <input type="submit" value="Start enquête">
-    </form>
+            <input type="submit" value="Start enquête">
+        </form>
 </body>
 
 </html>
