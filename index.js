@@ -9,6 +9,10 @@ app.get('/', (req, res) => {
     res.render('home');
 })
 
+app.get('/wafs', (req, res) => {
+    res.render('wafs');
+})
+
 app.post('/wafs', (req, res) => {
     res.render('wafs');
 })

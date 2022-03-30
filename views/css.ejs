@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('layout/head'); %>
+</head>
+
+<body>
+    <form action="/pwa" method="post">
+        <fieldset>
+            <br>
+            <legend>CSS to the Rescue</legend>
+            <label for="teachers">Docent(en):</label>
+            <br>
+            <input id="teachers" type="text" required>
+            <br>
+            <br>
+            <label for="duration">Periode vak:</label>
+            <br>
+            <div>
+                <input id="duration" type="date" required>
+                <input type="date" required>
+            </div>
+            <br>
+            <label>Beoordeling vak:</label>
+            <br>
+            <div>
+                <input id="grade1" name="grade" type="radio" value="1" required>
+                <label for="grade1">1</label>
+                <input id="grade1" name="grade" type="radio" value="2">
+                <label for="grade1">2</label>
+                <input id="grade1" name="grade" type="radio" value="3">
+                <label for="grade1">3</label>
+                <input id="grade1" name="grade" type="radio" value="4">
+                <label for="grade1">4</label>
+                <input id="grade1" name="grade" type="radio" value="5">
+                <label for="grade1">5</label>
+                <input id="grade1" name="grade" type="radio" value="6">
+                <label for="grade1">6</label>
+                <input id="grade1" name="grade" type="radio" value="7">
+                <label for="grade1">7</label>
+                <input id="grade1" name="grade" type="radio" value="8">
+                <label for="grade1">8</label>
+                <input id="grade1" name="grade" type="radio" value="9">
+                <label for="grade1">9</label>
+                <input id="grade1" name="grade" type="radio" value="10">
+                <label for="grade1">10</label>
+            </div>
+            <br>
+            <br>
+            <label for="difficulty">Hoe moeilijk vond je het?</label>
+            <br>
+            <textarea id="difficulty" cols="30" rows="5"></textarea>
+            <br>
+            <br>
+            <label for="explanation">Hoe was de uitleg?</label>
+            <br>
+            <textarea id="explanation" cols="30" rows="5"></textarea>
+            <br>
+            <br>
+            <label for="understanding">Hoe goed snap je het?</label>
+            <br>
+            <textarea id="understanding" cols="30" rows="5"></textarea>
+            <br>
+            <br>
+        </fieldset>
+        <div>
+            <a href="/">Vorige</a>
+            <p>1/6</p>
+            <input type="submit" value="Volgende">
+        </div>
+    </form>
+</body>
+
+</html>
