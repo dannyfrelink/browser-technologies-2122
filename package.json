@@ -1,0 +1,23 @@
+{
+  "name": "browser-technologies-2122",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dannyfrelink/browser-technologies-2122.git"
+  },
+  "author": "Danny Frelink",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dannyfrelink/browser-technologies-2122/issues"
+  },
+  "homepage": "https://github.com/dannyfrelink/browser-technologies-2122#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.3"
+  }
+}
