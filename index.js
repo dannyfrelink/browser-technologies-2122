@@ -9,6 +9,14 @@ app.get('/', (req, res) => {
     res.render('home');
 })
 
+app.post('/wafs', (req, res) => {
+    res.render('wafs');
+})
+
+app.post('/css', (req, res) => {
+    res.render('css');
+})
+
 app.use((req, res) => {
     res.status(404).send('Sorry, deze pagina kon ik niet vinden.');
 });
