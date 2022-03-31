@@ -122,6 +122,49 @@ textarea {
     max-width: 40rem;
 }
 
+form>div {
+    max-width: 55rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.75rem auto;
+}
+
+form>div p {
+    font-style: italic;
+    margin: 0;
+}
+
+a::before {
+    content: '\003C';
+    margin-right: 0.25rem;
+}
+
+button::after {
+    content: '\003E';
+    margin-left: 0.25rem;
+}
+
+a::before,
+button::after {
+    /* content: ''; */
+    font-weight: 400;
+    font-size: 135%;
+
+}
+
+button,
+a {
+    display: flex;
+    align-items: center;
+    font-size: 120%;
+    font-weight: bold;
+    text-decoration: none;
+    color: #AC3B61;
+    background-color: unset;
+    border: none;
+}
+
 input[type="submit"] {
     font-weight: bold;
     font-size: 120%;
@@ -133,8 +176,7 @@ input[type="submit"] {
     margin-top: 1.5rem;
 }
 
-input[type="submit"]:hover {
+#start_enquete:hover {
     background-color: #AC3B61;
     color: bisque;
-    cursor: pointer;
 }
