@@ -67,30 +67,66 @@ app.post('/pwa', (req, res) => {
 });
 
 app.get('/bt', (req, res) => {
-    res.render('bt');
+    res.render('bt', { bt });
 });
 
 app.post('/bt', (req, res) => {
-    res.render('bt');
+    pwa = {
+        "teachers": req.body.teachers,
+        "startDuration": req.body.start_duration,
+        "endDuration": req.body.end_duration,
+        "grade": `grade${req.body.grade}`,
+        "difficulty": req.body.difficulty,
+        "explanation": req.body.explanation,
+        "understanding": req.body.understanding
+    }
+    res.render('bt', { bt });
 });
 
 app.get('/rtw', (req, res) => {
-    res.render('rtw');
+    res.render('rtw', { rtw });
 });
 
 app.post('/rtw', (req, res) => {
-    res.render('rtw');
+    bt = {
+        "teachers": req.body.teachers,
+        "startDuration": req.body.start_duration,
+        "endDuration": req.body.end_duration,
+        "grade": `grade${req.body.grade}`,
+        "difficulty": req.body.difficulty,
+        "explanation": req.body.explanation,
+        "understanding": req.body.understanding
+    }
+    res.render('rtw', { rtw });
 });
 
 app.get('/hcd', (req, res) => {
-    res.render('hcd');
+    res.render('hcd', { hcd });
 });
 
 app.post('/hcd', (req, res) => {
-    res.render('hcd');
+    rtw = {
+        "teachers": req.body.teachers,
+        "startDuration": req.body.start_duration,
+        "endDuration": req.body.end_duration,
+        "grade": `grade${req.body.grade}`,
+        "difficulty": req.body.difficulty,
+        "explanation": req.body.explanation,
+        "understanding": req.body.understanding
+    }
+    res.render('hcd', { hcd });
 });
 
 app.post('/success', (req, res) => {
+    hcd = {
+        "teachers": req.body.teachers,
+        "startDuration": req.body.start_duration,
+        "endDuration": req.body.end_duration,
+        "grade": `grade${req.body.grade}`,
+        "difficulty": req.body.difficulty,
+        "explanation": req.body.explanation,
+        "understanding": req.body.understanding
+    }
     res.render('success');
 });
 
