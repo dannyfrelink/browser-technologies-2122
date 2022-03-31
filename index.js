@@ -20,6 +20,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/wafs', (req, res) => {
+    console.log(wafs)
     res.render('wafs', { wafs });
 });
 
@@ -40,7 +41,7 @@ app.post('/css', (req, res) => {
         "teachers": req.body.teachers,
         "startDuration": req.body.start_duration,
         "endDuration": req.body.end_duration,
-        "grade": req.body.grade,
+        "grade": `grade${req.body.grade}`,
         "difficulty": req.body.difficulty,
         "explanation": req.body.explanation,
         "understanding": req.body.understanding
@@ -49,20 +50,20 @@ app.post('/css', (req, res) => {
 });
 
 app.get('/pwa', (req, res) => {
+    res.render('pwa', { pwa });
+});
+
+app.post('/pwa', (req, res) => {
     css = {
         "teachers": req.body.teachers,
         "startDuration": req.body.start_duration,
         "endDuration": req.body.end_duration,
-        "grade": req.body.grade,
+        "grade": `grade${req.body.grade}`,
         "difficulty": req.body.difficulty,
         "explanation": req.body.explanation,
         "understanding": req.body.understanding
     }
-    res.render('pwa');
-});
-
-app.post('/pwa', (req, res) => {
-    res.render('pwa');
+    res.render('pwa', { pwa });
 });
 
 app.get('/bt', (req, res) => {
