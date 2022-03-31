@@ -31,11 +31,11 @@ app.post('/wafs', (req, res) => {
     res.render('wafs', { wafs });
 });
 
-app.get('/css', (req, res) => {
+app.get('/rescue', (req, res) => {
     res.render('css', { css });
 });
 
-app.post('/css', (req, res) => {
+app.post('/rescue', (req, res) => {
     wafs = {
         "teachers": req.body.teachers,
         "startDuration": req.body.start_duration,
