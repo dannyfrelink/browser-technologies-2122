@@ -7,17 +7,31 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
+let personal;
+let wafs;
+
 app.get('/', (req, res) => {
-    res.render('home');
+    res.render('home', { personal });
 });
 
-app.post('/wafs', async (req, res) => {
-    const test = { "name": req.body.name, "number": req.body.number }
-    console.log(test)
-    res.render('wafs');
+app.post('/wafs', (req, res) => {
+    personal = {
+        "name": req.body.name,
+        "number": req.body.number
+    }
+    res.render('wafs', { wafs });
 });
 
 app.post('/css', (req, res) => {
+    wafs = {
+        "teachers": req.body.teachers,
+        "startDuration": req.body.start_duration,
+        "endDuration": req.body.end_duration,
+        "grade": req.body.grade,
+        "difficulty": req.body.difficulty,
+        "explanation": req.body.explanation,
+        "understanding": req.body.understanding
+    }
     res.render('css');
 });
 
