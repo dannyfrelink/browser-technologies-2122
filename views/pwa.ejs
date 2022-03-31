@@ -27,26 +27,75 @@
                 <label>Beoordeling vak:</label>
                 <br>
                 <div>
-                    <input id="grade1" name="grade" type="radio" value="1" required>
+                    <% if(pwa.grade === 'grade1') { %>
+                        <input id="grade1" name="grade" type="radio" value="1" checked>
+                    <% } else { %>
+                        <input id="grade1" name="grade" type="radio" value="1" required>
+                    <% } %>
                     <label for="grade1">1</label>
-                    <input id="grade1" name="grade" type="radio" value="2" required>
-                    <label for="grade1">2</label>
-                    <input id="grade1" name="grade" type="radio" value="3" required>
-                    <label for="grade1">3</label>
-                    <input id="grade1" name="grade" type="radio" value="4" required>
-                    <label for="grade1">4</label>
-                    <input id="grade1" name="grade" type="radio" value="5" required>
-                    <label for="grade1">5</label>
-                    <input id="grade1" name="grade" type="radio" value="6" required>
-                    <label for="grade1">6</label>
-                    <input id="grade1" name="grade" type="radio" value="7" required>
-                    <label for="grade1">7</label>
-                    <input id="grade1" name="grade" type="radio" value="8" required>
-                    <label for="grade1">8</label>
-                    <input id="grade1" name="grade" type="radio" value="9" required>
-                    <label for="grade1">9</label>
-                    <input id="grade1" name="grade" type="radio" value="10" required>
-                    <label for="grade1">10</label>
+
+                    <% if(pwa.grade === 'grade2') { %>
+                        <input id="grade2" name="grade" type="radio" value="2" checked>
+                    <% } else { %>
+                        <input id="grade2" name="grade" type="radio" value="2">
+                    <% } %>
+                    <label for="grade2">2</label>
+
+                    <% if(pwa.grade === 'grade3') { %>
+                        <input id="grade3" name="grade" type="radio" value="3" checked> 
+                    <% } else { %>
+                        <input id="grade3" name="grade" type="radio" value="3">
+                    <% } %>
+                    <label for="grade3">3</label>
+
+                    <% if(pwa.grade === 'grade4') { %>
+                        <input id="grade4" name="grade" type="radio" value="4" checked>
+                    <% } else { %>
+                        <input id="grade4" name="grade" type="radio" value="4">
+                    <% } %>
+                    <label for="grade4">4</label>
+
+                    <% if(pwa.grade === 'grade5') { %>
+                        <input id="grade5" name="grade" type="radio" value="5" checked>
+                    <% } else { %>
+                        <input id="grade5" name="grade" type="radio" value="5">
+                    <% } %>
+                    <label for="grade5">5</label>
+
+                    <% if(pwa.grade === 'grade6') { %>
+                        <input id="grade6" name="grade" type="radio" value="6" checked>
+                    <% } else { %>
+                        <input id="grade6" name="grade" type="radio" value="6">
+                    <% } %>
+                    <label for="grade6">6</label>
+
+                    <% if(pwa.grade === 'grade7') { %>
+                        <input id="grade7" name="grade" type="radio" value="7" checked>
+                    <% } else { %>
+                        <input id="grade7" name="grade" type="radio" value="7">
+                    <% } %>
+                    <label for="grade7">7</label>
+
+                    <% if(pwa.grade === 'grade8') { %>
+                        <input id="grade8" name="grade" type="radio" value="8" checked>
+                    <% } else { %>
+                        <input id="grade8" name="grade" type="radio" value="8">
+                    <% } %>
+                    <label for="grade8">8</label>
+
+                    <% if(pwa.grade === 'grade9') { %>
+                        <input id="grade9" name="grade" type="radio" value="9" checked>
+                    <% } else { %>
+                        <input id="grade9" name="grade" type="radio" value="9">
+                    <% } %>
+                    <label for="grade9">9</label>
+
+                    <% if(pwa.grade === 'grade10') { %>
+                        <input id="grade10" name="grade" type="radio" value="10" checked>
+                    <% } else { %>
+                        <input id="grade10" name="grade" type="radio" value="10">
+                    <% } %>
+                    <label for="grade10">10</label>
                 </div>
                 <br>
                 <br>
