@@ -51,7 +51,7 @@ fieldset {
     border: 1.5px solid #AC3B61;
     border-radius: 0.5rem;
     margin: 2rem auto 0;
-    padding: 0.5rem;
+    padding: clamp(0.5rem, 1vw, 1rem);
 }
 
 legend {
@@ -63,35 +63,42 @@ legend {
 label {
     font-size: clamp(1rem, 1.86vw, 1.3rem);
     width: fit-content;
-    margin-bottom: 0.15rem;
+    margin-bottom: clamp(0.15rem, 0.279vw, 0.25rem);
 }
 
 input,
 textarea {
     font-size: clamp(0.83rem, 1.395vw, 1.1rem);
+    padding: clamp(0.1rem, 0.168vw, 0.15rem);
 }
 
 input[type="text"] {
-    margin-bottom: 0.75rem;
     width: 50vw;
+    max-width: 25rem;
+}
+
+input[type="date"] {
+    max-width: 15rem;
+}
+
+input[type="text"],
+fieldset div,
+textarea {
+    margin-bottom: clamp(0.75rem, 1.395vw, 1.3rem);
 }
 
 fieldset div:first-of-type {
     width: 100%;
-    margin-bottom: 0.75rem;
 }
 
 fieldset div:first-of-type>* {
-    width: 47.5%;
+    width: 45%;
 }
 
 fieldset div:nth-of-type(2) label {
+    cursor: pointer;
     border: 1.5px solid #AC3B61;
     padding: 0.05rem 0.4rem;
-}
-
-fieldset div:nth-of-type(2) {
-    margin-bottom: 0.75rem;
 }
 
 input[type="radio"] {
@@ -111,8 +118,8 @@ textarea:focus {
 }
 
 textarea {
-    margin-bottom: 0.75rem;
     width: 70vw;
+    max-width: 40rem;
 }
 
 input[type="submit"] {
