@@ -20,7 +20,6 @@ app.get('/', (req, res) => {
 });
 
 app.get('/wafs', (req, res) => {
-    console.log(wafs)
     res.render('wafs', { wafs });
 });
 
@@ -30,7 +29,6 @@ app.post('/wafs', (req, res) => {
         "number": req.body.number
     }
     res.render('wafs', { wafs });
-    
 });
 
 app.get('/css', (req, res) => {
