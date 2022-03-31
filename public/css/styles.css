@@ -147,10 +147,8 @@ button::after {
 
 a::before,
 button::after {
-    /* content: ''; */
     font-weight: 400;
     font-size: 135%;
-
 }
 
 button,
@@ -165,6 +163,14 @@ a {
     border: none;
 }
 
+button:hover,
+a:hover,
+input[type="submit"]:hover {
+    cursor: pointer;
+    transform: scale(1.15);
+    transition: transform 0.5s;
+}
+
 input[type="submit"] {
     font-weight: bold;
     font-size: 120%;
@@ -176,7 +182,7 @@ input[type="submit"] {
     margin-top: 1.5rem;
 }
 
-#start_enquete:hover {
+input[type="submit"]:hover {
     background-color: #AC3B61;
     color: bisque;
 }
