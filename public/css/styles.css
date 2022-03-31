@@ -163,12 +163,17 @@ a {
     border: none;
 }
 
-button:hover,
-a:hover,
-input[type="submit"]:hover {
+button:hover, button:focus,
+a:hover, a:focus,
+input[type="submit"]:hover, input[type="submit"]:focus {
     cursor: pointer;
     transform: scale(1.15);
     transition: transform 0.5s;
+}
+
+button:focus,
+a:focus {
+    outline: 2px dashed #AC3B61;
 }
 
 input[type="submit"] {
@@ -182,7 +187,8 @@ input[type="submit"] {
     margin-top: 1.5rem;
 }
 
-input[type="submit"]:hover {
+input[type="submit"]:hover,
+input[type="submit"]:focus {
     background-color: #AC3B61;
     color: bisque;
 }
