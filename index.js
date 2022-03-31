@@ -9,7 +9,7 @@ app.set('view engine', 'ejs');
 
 let personal;
 let wafs;
-let css;
+let rescue;
 let pwa;
 let bt;
 let rtw;
@@ -19,8 +19,27 @@ app.get('/', (req, res) => {
     res.render('home', { personal });
 });
 
-app.get('/wafs', (req, res) => {
-    res.render('wafs', { wafs });
+app.get('/:id', (req, res) => {
+    const route = req.params.id;
+
+    if(route === 'wafs') {
+        res.render('wafs', { wafs });
+    }
+    if(route === 'rescue') {
+        res.render('rescue', { rescue });
+    }
+    if(route === 'pwa') {
+        res.render('pwa', { pwa });
+    }
+    if(route === 'bt') {
+        res.render('bt', { bt });
+    }
+    if(route === 'rtw') {
+        res.render('rtw', { rtw });
+    }
+    if(route === 'hcd') {
+        res.render('hcd', { hcd });
+    }
 });
 
 app.post('/wafs', (req, res) => {
@@ -29,10 +48,6 @@ app.post('/wafs', (req, res) => {
         "number": req.body.number
     }
     res.render('wafs', { wafs });
-});
-
-app.get('/rescue', (req, res) => {
-    res.render('css', { css });
 });
 
 app.post('/rescue', (req, res) => {
@@ -45,15 +60,11 @@ app.post('/rescue', (req, res) => {
         "explanation": req.body.explanation,
         "understanding": req.body.understanding
     }
-    res.render('css', { css });
-});
-
-app.get('/pwa', (req, res) => {
-    res.render('pwa', { pwa });
+    res.render('rescue', { rescue });
 });
 
 app.post('/pwa', (req, res) => {
-    css = {
+    rescue = {
         "teachers": req.body.teachers,
         "startDuration": req.body.start_duration,
         "endDuration": req.body.end_duration,
@@ -63,10 +74,6 @@ app.post('/pwa', (req, res) => {
         "understanding": req.body.understanding
     }
     res.render('pwa', { pwa });
-});
-
-app.get('/bt', (req, res) => {
-    res.render('bt', { bt });
 });
 
 app.post('/bt', (req, res) => {
@@ -82,10 +89,6 @@ app.post('/bt', (req, res) => {
     res.render('bt', { bt });
 });
 
-app.get('/rtw', (req, res) => {
-    res.render('rtw', { rtw });
-});
-
 app.post('/rtw', (req, res) => {
     bt = {
         "teachers": req.body.teachers,
@@ -97,10 +100,6 @@ app.post('/rtw', (req, res) => {
         "understanding": req.body.understanding
     }
     res.render('rtw', { rtw });
-});
-
-app.get('/hcd', (req, res) => {
-    res.render('hcd', { hcd });
 });
 
 app.post('/hcd', (req, res) => {
