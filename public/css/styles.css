@@ -36,7 +36,7 @@ h1 {
 }
 
 p {
-    margin: clamp(0.75rem, 1.395vw, 1.3rem) 0 0;
+    margin: clamp(0.75rem, 1.395vw, 1.3rem) 0 clamp(2rem, 3.72vw, 3.14rem);
 }
 
 p, legend {
@@ -112,7 +112,8 @@ input[type="radio"]:checked+label {
 }
 
 input:not([type="submit"]):focus,
-textarea:focus {
+textarea:focus,
+select:focus {
     outline: none;
     border: 1.5px solid #AC3B61;
 }
@@ -135,7 +136,7 @@ form>div p {
     margin: 0;
 }
 
-a::before {
+a:not(#change_answers_button)::before {
     content: '\003C';
     margin-right: clamp(0.25rem, 0.462vw, 0.35rem);
 }
@@ -176,7 +177,8 @@ a:focus {
     outline: 2px dashed #AC3B61;
 }
 
-input[type="submit"] {
+input[type="submit"],
+#change_answers_button {
     font-weight: bold;
     font-size: clamp(120%, 2.2vw, 2rem);
     color: #AC3B61;
@@ -187,9 +189,26 @@ input[type="submit"] {
     margin-top: clamp(1.5rem, 2.79vw, 2.6rem);
 }
 
-input[type="submit"]:hover,
-input[type="submit"]:focus {
+input[type="submit"]:hover, input[type="submit"]:focus,
+#change_answers_button:hover, #change_answers_button:focus {
     outline: none;
     background-color: #AC3B61;
     color: bisque;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+select {
+    font-size: clamp(0.83rem, 1.395vw, 1.1rem);
+    width: 50vw;
+    max-width: 15rem;
+}
+
+#change_answers_button {
+    width: fit-content;
+    margin: clamp(2rem, 4.183vw, 3.5rem) auto;
 }
