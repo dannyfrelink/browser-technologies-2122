@@ -18,12 +18,12 @@
                 <legend>Persoonsgegevens</legend>
                 <label for="name">Naam:</label>
                 <br>
-                <input id="name" name="name" type="text" required>
+                <input id="name" name="name" type="text" value="<%= personal ? personal.name : '' %>" required>
                 <br>
                 <br>
                 <label for="number">Nummer:</label>
                 <br>
-                <input id="number" name="number" type="text" required>
+                <input id="number" name="number" type="text" value="<%= personal ? personal.number : '' %>" required>
                 <br>
                 <br>
             </fieldset>
