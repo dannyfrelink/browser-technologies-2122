@@ -14,12 +14,20 @@ app.get('/', (req, res) => {
     res.render('home', { personal });
 });
 
+app.get('/wafs', (req, res) => {
+    res.render('wafs', { wafs });
+});
+
 app.post('/wafs', (req, res) => {
     personal = {
         "name": req.body.name,
         "number": req.body.number
     }
     res.render('wafs', { wafs });
+});
+
+app.get('/css', (req, res) => {
+    res.render('css');
 });
 
 app.post('/css', (req, res) => {
@@ -35,16 +43,32 @@ app.post('/css', (req, res) => {
     res.render('css');
 });
 
+app.get('/pwa', (req, res) => {
+    res.render('pwa');
+});
+
 app.post('/pwa', (req, res) => {
     res.render('pwa');
+});
+
+app.get('/bt', (req, res) => {
+    res.render('bt');
 });
 
 app.post('/bt', (req, res) => {
     res.render('bt');
 });
 
+app.get('/rtw', (req, res) => {
+    res.render('rtw');
+});
+
 app.post('/rtw', (req, res) => {
     res.render('rtw');
+});
+
+app.get('/hcd', (req, res) => {
+    res.render('hcd');
 });
 
 app.post('/hcd', (req, res) => {

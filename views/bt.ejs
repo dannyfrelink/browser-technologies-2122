@@ -13,14 +13,15 @@
                 <legend>Browser Technologies</legend>
                 <label for="teachers">Docent(en):</label>
                 <br>
-                <input id="teachers" name="teachers" type="text" required>
+                <input id="teachers" name="teachers" type="text" value="<%= wafs ? wafs.teachers : '' %>" required>
                 <br>
                 <br>
                 <label for="duration">Periode vak:</label>
                 <br>
                 <div>
-                    <input id="duration" name="start_duration" type="date" required>
-                    <input type="date" name="end_duration" required>
+                    <input id="duration" name="start_duration" type="date" value="<%= wafs ? wafs.startDuration : '' %>"
+                        required>
+                    <input type="date" name="end_duration" value="<%= wafs ? wafs.endDuration : '' %>" required>
                 </div>
                 <br>
                 <label>Beoordeling vak:</label>
@@ -51,17 +52,20 @@
                 <br>
                 <label for="difficulty">Hoe moeilijk vond je het?</label>
                 <br>
-                <textarea id="difficulty" name="difficulty" cols="30" rows="5"></textarea>
+                <textarea id="difficulty" name="difficulty" value="<%= wafs ? wafs.difficulty : '' %>" cols="30"
+                    rows="5" required></textarea>
                 <br>
                 <br>
                 <label for="explanation">Hoe was de uitleg?</label>
                 <br>
-                <textarea id="explanation" name="explanation" cols="30" rows="5"></textarea>
+                <textarea id="explanation" name="explanation" value="<%= wafs ? wafs.explanation : '' %>" cols="30"
+                    rows="5" required></textarea>
                 <br>
                 <br>
                 <label for="understanding">Hoe goed snap je het?</label>
                 <br>
-                <textarea id="understanding" name="understanding" cols="30" rows="5"></textarea>
+                <textarea id="understanding" name="understanding" value="<%= wafs ? wafs.explanation : '' %>" cols="30"
+                    rows="5" required></textarea>
                 <br>
                 <br>
             </fieldset>
