@@ -1,7 +1,9 @@
 const express = require('express');
 const app = express();
 const port = 3000;
+const bodyParser = require('body-parser');
 
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
@@ -9,7 +11,9 @@ app.get('/', (req, res) => {
     res.render('home');
 });
 
-app.post('/wafs', (req, res) => {
+app.post('/wafs', async (req, res) => {
+    const test = { "name": req.body.name, "number": req.body.number }
+    console.log(test)
     res.render('wafs');
 });
 
