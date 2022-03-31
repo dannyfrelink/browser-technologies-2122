@@ -23,7 +23,7 @@
                 <br>
                 <label for="number">Nummer:</label>
                 <br>
-                <input id="number" name="number" type="text" value="<%= personal ? personal.number : '' %>" required>
+                <input id="number" name="number" type="text" value="<%= personal ? personal.number : '' %>" pattern="\d*" minlength="9" maxlength="9" required>
                 <br>
                 <br>
             </fieldset>
