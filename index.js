@@ -9,6 +9,11 @@ app.set('view engine', 'ejs');
 
 let personal;
 let wafs;
+let css;
+let pwa;
+let bt;
+let rtw;
+let hcd;
 
 app.get('/', (req, res) => {
     res.render('home', { personal });
@@ -27,7 +32,7 @@ app.post('/wafs', (req, res) => {
 });
 
 app.get('/css', (req, res) => {
-    res.render('css');
+    res.render('css', { css });
 });
 
 app.post('/css', (req, res) => {
@@ -40,10 +45,19 @@ app.post('/css', (req, res) => {
         "explanation": req.body.explanation,
         "understanding": req.body.understanding
     }
-    res.render('css');
+    res.render('css', { css });
 });
 
 app.get('/pwa', (req, res) => {
+    css = {
+        "teachers": req.body.teachers,
+        "startDuration": req.body.start_duration,
+        "endDuration": req.body.end_duration,
+        "grade": req.body.grade,
+        "difficulty": req.body.difficulty,
+        "explanation": req.body.explanation,
+        "understanding": req.body.understanding
+    }
     res.render('pwa');
 });
 
