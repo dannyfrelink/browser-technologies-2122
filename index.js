@@ -17,6 +17,9 @@ const fsReadFile = (res, route) => {
                 info = JSON.parse(data);
             }
     
+            if(route === 'personal') {
+                res.render('home', { personal: info });
+            }
             if(route === 'wafs') {
                 res.render('wafs', { wafs: info });
             }
@@ -52,19 +55,7 @@ const dataCollector = (req) => {
 }
 
 app.get('/', (req, res) => {
-    fs.readFile('json/personal.json', 'utf8', function (err, data) {
-        if (err) throw err;
-        let info
-        if (data) {
-            info = JSON.parse(data);
-        }
-
-        res.render('home', {
-            personal: info
-        });
-    
-    });
-
+    fsReadFile(res, 'personal')
 });
 
 app.get('/:id', (req, res) => {
