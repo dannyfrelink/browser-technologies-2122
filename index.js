@@ -72,12 +72,14 @@ app.get('/:id', (req, res) => {
     fsReadFile(res, route)
 });
 
+let stringData;
+
 app.post('/wafs', (req, res) => {
     const personal = {
         "name": req.body.name,
         "number": req.body.number
     }
-    const stringData = JSON.stringify(personal);
+    stringData = JSON.stringify(personal);
 
     fs.writeFile('json/personal.json', stringData, (err) => {
         if(err) {
@@ -89,7 +91,7 @@ app.post('/wafs', (req, res) => {
 
 app.post('/rescue', (req, res) => {
     const wafs = dataCollector(req);
-    const stringData = JSON.stringify(wafs);
+    stringData = JSON.stringify(wafs);
 
     fs.writeFile('json/wafs.json', stringData, (err) => {
         if(err) {
@@ -100,8 +102,8 @@ app.post('/rescue', (req, res) => {
 });
 
 app.post('/pwa', (req, res) => {
-    rescue = dataCollector(req);
-    const stringData = JSON.stringify(rescue);
+    const rescue = dataCollector(req);
+    stringData = JSON.stringify(rescue);
 
     fs.writeFile('json/rescue.json', stringData, (err) => {
         if(err) {
@@ -112,8 +114,8 @@ app.post('/pwa', (req, res) => {
 });
 
 app.post('/bt', (req, res) => {
-    pwa = dataCollector(req);
-    const stringData = JSON.stringify(pwa);
+    const pwa = dataCollector(req);
+    stringData = JSON.stringify(pwa);
 
     fs.writeFile('json/pwa.json', stringData, (err) => {
         if(err) {
@@ -124,8 +126,8 @@ app.post('/bt', (req, res) => {
 });
 
 app.post('/rtw', (req, res) => {
-    bt = dataCollector(req);
-    const stringData = JSON.stringify(bt);
+    const bt = dataCollector(req);
+    stringData = JSON.stringify(bt);
 
     fs.writeFile('json/bt.json', stringData, (err) => {
         if(err) {
@@ -136,8 +138,8 @@ app.post('/rtw', (req, res) => {
 });
 
 app.post('/hcd', (req, res) => {
-    rtw = dataCollector(req);
-    const stringData = JSON.stringify(rtw);
+    const rtw = dataCollector(req);
+    stringData = JSON.stringify(rtw);
 
     fs.writeFile('json/rtw.json', stringData, (err) => {
         if(err) {
@@ -148,8 +150,8 @@ app.post('/hcd', (req, res) => {
 });
 
 app.post('/success', (req, res) => {
-    hcd = dataCollector(req);
-    const stringData = JSON.stringify(hcd);
+    const hcd = dataCollector(req);
+    stringData = JSON.stringify(hcd);
 
     fs.writeFile('json/hcd.json', stringData, (err) => {
         if(err) {
