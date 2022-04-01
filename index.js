@@ -37,7 +37,18 @@ const fsReadFile = (res, route) => {
             }  
         });
     }
+}
 
+const dataCollector = (req) => {
+    return {
+        "teachers": req.body.teachers,
+        "startDuration": req.body.start_duration,
+        "endDuration": req.body.end_duration,
+        "grade": `grade${req.body.grade}`,
+        "difficulty": req.body.difficulty,
+        "explanation": req.body.explanation,
+        "understanding": req.body.understanding
+    }
 }
 
 app.get('/', (req, res) => {
@@ -77,16 +88,8 @@ app.post('/wafs', (req, res) => {
 });
 
 app.post('/rescue', (req, res) => {
-    const wafs = {
-        "teachers": req.body.teachers,
-        "startDuration": req.body.start_duration,
-        "endDuration": req.body.end_duration,
-        "grade": `grade${req.body.grade}`,
-        "difficulty": req.body.difficulty,
-        "explanation": req.body.explanation,
-        "understanding": req.body.understanding
-    }
-    const stringData = JSON.stringify(wafs)
+    const wafs = dataCollector(req);
+    const stringData = JSON.stringify(wafs);
 
     fs.writeFile('wafs.json', stringData, (err) => {
         if(err) {
@@ -97,15 +100,7 @@ app.post('/rescue', (req, res) => {
 });
 
 app.post('/pwa', (req, res) => {
-    rescue = {
-        "teachers": req.body.teachers,
-        "startDuration": req.body.start_duration,
-        "endDuration": req.body.end_duration,
-        "grade": `grade${req.body.grade}`,
-        "difficulty": req.body.difficulty,
-        "explanation": req.body.explanation,
-        "understanding": req.body.understanding
-    }
+    rescue = dataCollector(req);
     const stringData = JSON.stringify(rescue);
 
     fs.writeFile('rescue.json', stringData, (err) => {
@@ -117,15 +112,7 @@ app.post('/pwa', (req, res) => {
 });
 
 app.post('/bt', (req, res) => {
-    pwa = {
-        "teachers": req.body.teachers,
-        "startDuration": req.body.start_duration,
-        "endDuration": req.body.end_duration,
-        "grade": `grade${req.body.grade}`,
-        "difficulty": req.body.difficulty,
-        "explanation": req.body.explanation,
-        "understanding": req.body.understanding
-    }
+    pwa = dataCollector(req);
     const stringData = JSON.stringify(pwa);
 
     fs.writeFile('pwa.json', stringData, (err) => {
@@ -137,15 +124,7 @@ app.post('/bt', (req, res) => {
 });
 
 app.post('/rtw', (req, res) => {
-    bt = {
-        "teachers": req.body.teachers,
-        "startDuration": req.body.start_duration,
-        "endDuration": req.body.end_duration,
-        "grade": `grade${req.body.grade}`,
-        "difficulty": req.body.difficulty,
-        "explanation": req.body.explanation,
-        "understanding": req.body.understanding
-    }
+    bt = dataCollector(req);
     const stringData = JSON.stringify(bt);
 
     fs.writeFile('bt.json', stringData, (err) => {
@@ -157,15 +136,7 @@ app.post('/rtw', (req, res) => {
 });
 
 app.post('/hcd', (req, res) => {
-    rtw = {
-        "teachers": req.body.teachers,
-        "startDuration": req.body.start_duration,
-        "endDuration": req.body.end_duration,
-        "grade": `grade${req.body.grade}`,
-        "difficulty": req.body.difficulty,
-        "explanation": req.body.explanation,
-        "understanding": req.body.understanding
-    }
+    rtw = dataCollector(req);
     const stringData = JSON.stringify(rtw);
 
     fs.writeFile('rtw.json', stringData, (err) => {
@@ -177,15 +148,7 @@ app.post('/hcd', (req, res) => {
 });
 
 app.post('/success', (req, res) => {
-    hcd = {
-        "teachers": req.body.teachers,
-        "startDuration": req.body.start_duration,
-        "endDuration": req.body.end_duration,
-        "grade": `grade${req.body.grade}`,
-        "difficulty": req.body.difficulty,
-        "explanation": req.body.explanation,
-        "understanding": req.body.understanding
-    }
+    hcd = dataCollector(req);
     const stringData = JSON.stringify(hcd);
 
     fs.writeFile('hcd.json', stringData, (err) => {
