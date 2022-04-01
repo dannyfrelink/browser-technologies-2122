@@ -1,10 +1,4 @@
 node_modules/
 .DS_Store
-personal.json
-wafs.json
-rescue.json
-pwa.json
-bt.json
-rtw.json
-hcd.json
+json/
 
