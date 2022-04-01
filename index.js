@@ -10,7 +10,7 @@ app.set('view engine', 'ejs');
 
 const fsReadFile = (res, route) => {
     if (route !== 'manifest.json') {
-        fs.readFile(`${route}.json`, 'utf8', function (err, data) {
+        fs.readFile(`json/${route}.json`, 'utf8', function (err, data) {
             if (err) throw err;
             let info
             if (data) {
@@ -52,7 +52,7 @@ const dataCollector = (req) => {
 }
 
 app.get('/', (req, res) => {
-    fs.readFile('personal.json', 'utf8', function (err, data) {
+    fs.readFile('json/personal.json', 'utf8', function (err, data) {
         if (err) throw err;
         let info
         if (data) {
@@ -79,7 +79,7 @@ app.post('/wafs', (req, res) => {
     }
     const stringData = JSON.stringify(personal);
 
-    fs.writeFile('personal.json', stringData, (err) => {
+    fs.writeFile('json/personal.json', stringData, (err) => {
         if(err) {
             console.log(err)
         }
@@ -91,7 +91,7 @@ app.post('/rescue', (req, res) => {
     const wafs = dataCollector(req);
     const stringData = JSON.stringify(wafs);
 
-    fs.writeFile('wafs.json', stringData, (err) => {
+    fs.writeFile('json/wafs.json', stringData, (err) => {
         if(err) {
             console.log(err)
         }
@@ -103,7 +103,7 @@ app.post('/pwa', (req, res) => {
     rescue = dataCollector(req);
     const stringData = JSON.stringify(rescue);
 
-    fs.writeFile('rescue.json', stringData, (err) => {
+    fs.writeFile('json/rescue.json', stringData, (err) => {
         if(err) {
             console.log(err)
         }
@@ -115,7 +115,7 @@ app.post('/bt', (req, res) => {
     pwa = dataCollector(req);
     const stringData = JSON.stringify(pwa);
 
-    fs.writeFile('pwa.json', stringData, (err) => {
+    fs.writeFile('json/pwa.json', stringData, (err) => {
         if(err) {
             console.log(err)
         }
@@ -127,7 +127,7 @@ app.post('/rtw', (req, res) => {
     bt = dataCollector(req);
     const stringData = JSON.stringify(bt);
 
-    fs.writeFile('bt.json', stringData, (err) => {
+    fs.writeFile('json/bt.json', stringData, (err) => {
         if(err) {
             console.log(err)
         }
@@ -139,7 +139,7 @@ app.post('/hcd', (req, res) => {
     rtw = dataCollector(req);
     const stringData = JSON.stringify(rtw);
 
-    fs.writeFile('rtw.json', stringData, (err) => {
+    fs.writeFile('json/rtw.json', stringData, (err) => {
         if(err) {
             console.log(err)
         }
@@ -151,7 +151,7 @@ app.post('/success', (req, res) => {
     hcd = dataCollector(req);
     const stringData = JSON.stringify(hcd);
 
-    fs.writeFile('hcd.json', stringData, (err) => {
+    fs.writeFile('json/hcd.json', stringData, (err) => {
         if(err) {
             console.log(err)
         }
