@@ -2,56 +2,82 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const bodyParser = require('body-parser');
+const fs = require('fs');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
-let personal;
-let wafs;
-let rescue;
-let pwa;
-let bt;
-let rtw;
-let hcd;
+const fsReadFile = (res, route) => {
+    if (route !== 'manifest.json') {
+        fs.readFile(`${route}.json`, 'utf8', function (err, data) {
+            if (err) throw err;
+            let info
+            if (data) {
+                info = JSON.parse(data);
+            }
+    
+            if(route === 'wafs') {
+                res.render('wafs', { wafs: info });
+            }
+            if(route === 'rescue') {
+                res.render('rescue', { rescue: info });
+            }
+            if(route === 'pwa') {
+                res.render('pwa', { pwa: info });
+            }
+            if(route === 'bt') {
+                res.render('bt', { bt: info });
+            }
+            if(route === 'rtw') {
+                res.render('rtw', { rtw: info });
+            }
+            if(route === 'hcd') {
+                res.render('hcd', { hcd: info });
+            }  
+        });
+    }
+
+}
 
 app.get('/', (req, res) => {
-    res.render('home', { personal });
+    fs.readFile('personal.json', 'utf8', function (err, data) {
+        if (err) throw err;
+        let info
+        if (data) {
+            info = JSON.parse(data);
+        }
+
+        res.render('home', {
+            personal: info
+        });
+    
+    });
+
 });
 
 app.get('/:id', (req, res) => {
     const route = req.params.id;
-
-    if(route === 'wafs') {
-        res.render('wafs', { wafs });
-    }
-    if(route === 'rescue') {
-        res.render('rescue', { rescue });
-    }
-    if(route === 'pwa') {
-        res.render('pwa', { pwa });
-    }
-    if(route === 'bt') {
-        res.render('bt', { bt });
-    }
-    if(route === 'rtw') {
-        res.render('rtw', { rtw });
-    }
-    if(route === 'hcd') {
-        res.render('hcd', { hcd });
-    }
+    fsReadFile(res, route)
 });
 
 app.post('/wafs', (req, res) => {
-    personal = {
+    const personal = {
         "name": req.body.name,
         "number": req.body.number
     }
-    res.render('wafs', { wafs });
+    const stringData = JSON.stringify(personal);
+
+    fs.writeFile('personal.json', stringData, (err) => {
+        if(err) {
+            console.log(err)
+        }
+    });
+    fsReadFile(res, 'wafs')
 });
 
 app.post('/rescue', (req, res) => {
-    wafs = {
+    const wafs = {
         "teachers": req.body.teachers,
         "startDuration": req.body.start_duration,
         "endDuration": req.body.end_duration,
@@ -60,7 +86,14 @@ app.post('/rescue', (req, res) => {
         "explanation": req.body.explanation,
         "understanding": req.body.understanding
     }
-    res.render('rescue', { rescue });
+    const stringData = JSON.stringify(wafs)
+
+    fs.writeFile('wafs.json', stringData, (err) => {
+        if(err) {
+            console.log(err)
+        }
+    })
+    fsReadFile(res, 'rescue')
 });
 
 app.post('/pwa', (req, res) => {
@@ -73,7 +106,14 @@ app.post('/pwa', (req, res) => {
         "explanation": req.body.explanation,
         "understanding": req.body.understanding
     }
-    res.render('pwa', { pwa });
+    const stringData = JSON.stringify(rescue);
+
+    fs.writeFile('rescue.json', stringData, (err) => {
+        if(err) {
+            console.log(err)
+        }
+    });
+    fsReadFile(res, 'pwa')
 });
 
 app.post('/bt', (req, res) => {
@@ -86,7 +126,14 @@ app.post('/bt', (req, res) => {
         "explanation": req.body.explanation,
         "understanding": req.body.understanding
     }
-    res.render('bt', { bt });
+    const stringData = JSON.stringify(pwa);
+
+    fs.writeFile('pwa.json', stringData, (err) => {
+        if(err) {
+            console.log(err)
+        }
+    });
+    fsReadFile(res, 'bt')
 });
 
 app.post('/rtw', (req, res) => {
@@ -99,7 +146,14 @@ app.post('/rtw', (req, res) => {
         "explanation": req.body.explanation,
         "understanding": req.body.understanding
     }
-    res.render('rtw', { rtw });
+    const stringData = JSON.stringify(bt);
+
+    fs.writeFile('bt.json', stringData, (err) => {
+        if(err) {
+            console.log(err)
+        }
+    });
+    fsReadFile(res, 'rtw')
 });
 
 app.post('/hcd', (req, res) => {
@@ -112,7 +166,14 @@ app.post('/hcd', (req, res) => {
         "explanation": req.body.explanation,
         "understanding": req.body.understanding
     }
-    res.render('hcd', { hcd });
+    const stringData = JSON.stringify(rtw);
+
+    fs.writeFile('rtw.json', stringData, (err) => {
+        if(err) {
+            console.log(err)
+        }
+    });
+    fsReadFile(res, 'hcd')
 });
 
 app.post('/success', (req, res) => {
@@ -125,6 +186,13 @@ app.post('/success', (req, res) => {
         "explanation": req.body.explanation,
         "understanding": req.body.understanding
     }
+    const stringData = JSON.stringify(hcd);
+
+    fs.writeFile('hcd.json', stringData, (err) => {
+        if(err) {
+            console.log(err)
+        }
+    });
     res.render('success');
 });
 
