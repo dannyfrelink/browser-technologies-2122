@@ -3,6 +3,7 @@ const app = express();
 const port = 3000;
 const bodyParser = require('body-parser');
 const fs = require('fs');
+let stringData;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static('public'));
@@ -62,8 +63,6 @@ app.get('/:id', (req, res) => {
     const route = req.params.id;
     fsReadFile(res, route)
 });
-
-let stringData;
 
 app.post('/wafs', (req, res) => {
     const personal = {
