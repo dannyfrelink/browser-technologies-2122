@@ -212,3 +212,7 @@ select {
     width: fit-content;
     margin: clamp(2rem, 4.183vw, 3.5rem) auto;
 }
+
+.hidden {
+    display: none;
+}
