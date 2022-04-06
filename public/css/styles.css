@@ -67,7 +67,8 @@ label {
 }
 
 input,
-textarea {
+textarea,
+select {
     font-size: clamp(0.83rem, 1.395vw, 1.1rem);
     padding: clamp(0.1rem, 0.168vw, 0.15rem);
 }
@@ -164,12 +165,8 @@ a {
     border: none;
 }
 
-button:hover, button:focus,
-a:hover, a:focus,
-input[type="submit"]:hover, input[type="submit"]:focus {
+button:hover, a:hover, input[type="submit"]:hover {
     cursor: pointer;
-    transform: scale(1.15);
-    transition: transform 0.5s;
 }
 
 button:focus,
@@ -203,7 +200,6 @@ main {
 }
 
 select {
-    font-size: clamp(0.83rem, 1.395vw, 1.1rem);
     width: 50vw;
     max-width: 15rem;
 }
@@ -215,4 +211,87 @@ select {
 
 .hidden {
     display: none;
+}
+
+@supports not (display: flex) {
+    br {
+        display: block;
+    }
+}
+
+@supports (transform: scale(1.15)) and (transition: transform 0.5s) {
+    button:hover, button:focus,
+    a:hover, a:focus,
+    input[type="submit"]:hover, input[type="submit"]:focus {
+        transform: scale(1.15);
+        transition: transform 0.5s;
+    }
+}
+
+@supports not (clamp()) {
+    header {
+        margin-top: 2.5rem;
+    }
+    
+    p {
+        margin: 0.75rem 0 2rem;
+    }
+    
+    fieldset {
+        margin: 2rem auto 0;
+        padding: 0.5rem;
+    }
+    
+    legend {
+        padding: 0 0.5rem;
+    }
+    
+    label {
+        margin-bottom: 0.15rem;
+    }
+    
+    input,
+    textarea {
+        padding: 0.1rem;
+    }
+    
+    input[type="text"],
+    fieldset div,
+    textarea {
+        margin-bottom: 0.75rem;
+    }
+
+    form>div {
+        margin: 0.75rem auto;
+    }
+
+    a:not(#change_answers_button)::before {
+        margin-right: 0.25rem;
+    }
+    
+    button::after {
+        margin-left: 0.25rem;
+    }
+    
+    a::before,
+    button::after {
+        font-size: 135%;
+    }
+    
+    button,
+    a {
+        font-size: 120%;
+    }
+
+    input[type="submit"],
+    #change_answers_button {
+        font-size: 120%;
+        border-radius: 0.5rem;
+        padding: 0.5rem 0.25rem;
+        margin-top: 1.5rem;
+    }
+    
+    #change_answers_button {
+        margin: 2rem auto;
+    }
 }
