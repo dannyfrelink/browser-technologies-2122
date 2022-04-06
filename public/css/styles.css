@@ -164,6 +164,29 @@ a {
     border: none;
 }
 
+#loader,
+#loader_back {
+    border: 0.25em solid white;
+    border-top: 0.25em solid #AC3B61;
+    border-radius: 50%;
+    width: 0.65em;
+    height: 0.65em;
+    animation: spin 2s linear infinite;
+}
+
+#loader {
+    margin-left: clamp(0.25rem, 0.462vw, 0.35rem);
+}
+
+#loader_back {
+    margin-right: clamp(0.25rem, 0.462vw, 0.35rem);
+}
+  
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 button:hover, a:hover, input[type="submit"]:hover {
     cursor: pointer;
 }

@@ -10,19 +10,19 @@ const checkFieldLength = () => {
 	inputs.forEach(input => {
 		if (input.value.length == 0) {
 			form.addEventListener('submit', () => {
-				alert('Nog niet alle velden zijn ingevuld')
+				alert('Nog niet alle velden zijn ingevuld');
 			})
 		}
 	});
     textareas.forEach(textarea => {
 		if (textarea.value.length == 0) {
 			form.addEventListener('submit', () => {
-				alert('Nog niet alle velden zijn ingevuld')
+				alert('Nog niet alle velden zijn ingevuld');
 			})
 		}
 	});
 }
-checkFieldLength()
+checkFieldLength();
 
 if(changeAnswersSelect) {
     changeAnswersLabel.classList.remove('hidden');
@@ -33,3 +33,24 @@ if(changeAnswersSelect) {
         changeAnswersButton.setAttribute('href', changeAnswersSelect.value);
     });
 }
+
+
+const button = document.querySelector('button');
+const loader = document.querySelector('#loader');
+const anchor = document.querySelector('a');
+const loaderBack = document.querySelector('#loader_back');
+
+const showLoaders = () => {
+    if(button && loader) {
+        button.addEventListener('click', () => {
+            loader.classList.remove('hidden');
+        });
+    }
+
+    if(anchor && loaderBack) {
+        anchor.addEventListener('click', () => {
+            loaderBack.classList.remove('hidden');
+        });
+    }
+}
+showLoaders();
