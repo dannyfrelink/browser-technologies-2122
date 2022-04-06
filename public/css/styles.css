@@ -62,7 +62,6 @@ legend {
 
 label {
     font-size: clamp(1rem, 1.86vw, 1.3rem);
-    width: fit-content;
     margin-bottom: clamp(0.15rem, 0.279vw, 0.25rem);
 }
 
@@ -205,7 +204,6 @@ select {
 }
 
 #change_answers_button {
-    width: fit-content;
     margin: clamp(2rem, 4.183vw, 3.5rem) auto;
 }
 
@@ -213,7 +211,7 @@ select {
     display: none;
 }
 
-@supports not (display: flex) {
+@supports (not (display: flex)) or (not (flex-direction: column)) {
     br {
         display: block;
     }
