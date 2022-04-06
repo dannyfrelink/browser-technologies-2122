@@ -6,7 +6,7 @@ const changeAnswersLabel = document.querySelector('main label');
 const changeAnswersSelect = document.querySelector('select');
 const changeAnswersButton = document.querySelector('#change_answers_button');
 
-const checkInputLength = () => {
+const checkFieldLength = () => {
 	inputs.forEach(input => {
 		if (input.value.length === 0) {
 			form.addEventListener('submit', () => {
@@ -22,7 +22,7 @@ const checkInputLength = () => {
 		}
 	});
 }
-checkInputLength()
+checkFieldLength()
 
 if(changeAnswersSelect) {
     changeAnswersLabel.classList.remove('hidden');
