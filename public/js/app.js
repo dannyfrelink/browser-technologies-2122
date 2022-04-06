@@ -2,6 +2,11 @@ const inputs = document.querySelectorAll('input');
 const textareas = document.querySelectorAll('textarea');
 const form = document.querySelector('form');
 
+const button = document.querySelector('button');
+const loader = document.querySelector('#loader');
+const anchor = document.querySelector('a');
+const loaderBack = document.querySelector('#loader_back');
+
 const changeAnswersLabel = document.querySelector('main label');
 const changeAnswersSelect = document.querySelector('select');
 const changeAnswersButton = document.querySelector('#change_answers_button');
@@ -24,22 +29,6 @@ const checkFieldLength = () => {
 }
 checkFieldLength();
 
-if(changeAnswersSelect) {
-    changeAnswersLabel.classList.remove('hidden');
-    changeAnswersSelect.classList.remove('hidden');
-    changeAnswersButton.setAttribute('href', changeAnswersSelect.value);
-
-    changeAnswersSelect.addEventListener('change', () => {
-        changeAnswersButton.setAttribute('href', changeAnswersSelect.value);
-    });
-}
-
-
-const button = document.querySelector('button');
-const loader = document.querySelector('#loader');
-const anchor = document.querySelector('a');
-const loaderBack = document.querySelector('#loader_back');
-
 const showLoaders = () => {
     if(button && loader) {
         button.addEventListener('click', () => {
@@ -54,3 +43,13 @@ const showLoaders = () => {
     }
 }
 showLoaders();
+
+if(changeAnswersSelect) {
+    changeAnswersLabel.classList.remove('hidden');
+    changeAnswersSelect.classList.remove('hidden');
+    changeAnswersButton.setAttribute('href', changeAnswersSelect.value);
+
+    changeAnswersSelect.addEventListener('change', () => {
+        changeAnswersButton.setAttribute('href', changeAnswersSelect.value);
+    });
+}
