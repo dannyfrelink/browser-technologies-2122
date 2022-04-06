@@ -8,16 +8,16 @@ const changeAnswersButton = document.querySelector('#change_answers_button');
 
 const checkFieldLength = () => {
 	inputs.forEach(input => {
-		if (input.value.length === 0) {
+		if (input.value.length == 0) {
 			form.addEventListener('submit', () => {
-				alert('Dit veld moet nog worden ingevuld')
+				alert('Nog niet alle velden zijn ingevuld')
 			})
 		}
 	});
     textareas.forEach(textarea => {
-		if (textarea.value.length === 0) {
+		if (textarea.value.length == 0) {
 			form.addEventListener('submit', () => {
-				alert('Dit veld moet nog worden ingevuld')
+				alert('Nog niet alle velden zijn ingevuld')
 			})
 		}
 	});
