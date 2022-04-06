@@ -10,7 +10,7 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
 const fsReadFile = (res, route) => {
-    if (route !== 'manifest.json' && route !== 'favicon.ico') {
+    if (route !== 'manifest.json' && route !== 'favicon.ico' && route !== 'success') {
         fs.readFile(`json/${route}.json`, 'utf8', function (err, data) {
             if (err) throw err;
             let info
