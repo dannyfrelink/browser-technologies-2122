@@ -2,6 +2,11 @@ var inputs = document.querySelectorAll('input');
 var textareas = document.querySelectorAll('textarea');
 var form = document.querySelector('form');
 
+var inputDate1 = document.querySelector('input[type="date"]:first-of-type');
+var inputDate2 = document.querySelector('input[type="date"]:last-of-type');
+var date1 = new Date(inputDate1.value);
+var date2 = new Date(inputDate2.value);
+
 var button = document.querySelector('button');
 var loader = document.querySelector('#loader');
 var anchor = document.querySelector('a');
@@ -28,6 +33,27 @@ function checkFieldLength() {
     })
 }
 checkFieldLength();
+
+function checkDates() {
+    if(date1.getTime() > date2.getTime()) {
+        return form.addEventListener('submit', function(e) {
+            e.preventDefault()
+            alert('Begindatum is na de einddatum');
+        })
+    }
+}
+
+if(inputDate1 && inputDate2) {
+    inputDate1.addEventListener('change', function() {
+        date1 = new Date(inputDate1.value)
+        checkDates()
+    })
+    
+    inputDate2.addEventListener('change', function(e) {
+        date2 = new Date(inputDate2.value)
+        checkDates()
+    })
+}
 
 function showLoaders() {
     if(button && loader) {
