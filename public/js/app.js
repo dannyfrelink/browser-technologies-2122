@@ -12,20 +12,20 @@ const changeAnswersSelect = document.querySelector('select');
 const changeAnswersButton = document.querySelector('#change_answers_button');
 
 const checkFieldLength = () => {
-	inputs.forEach(input => {
-		if (input.value.length == 0) {
-			form.addEventListener('submit', () => {
-				alert('Nog niet alle velden zijn ingevuld');
-			})
-		}
-	});
-    textareas.forEach(textarea => {
-		if (textarea.value.length == 0) {
-			form.addEventListener('submit', () => {
-				alert('Nog niet alle velden zijn ingevuld');
-			})
-		}
-	});
+    form.addEventListener('submit', (event) => {
+        inputs.forEach(input => {
+            if (input.value.length == 0) {
+                event.preventDefault()
+                alert('Nog niet alle velden zijn ingevuld');
+            }
+        })
+        textareas.forEach(textarea => {
+            if (textarea.value.length == 0) {
+                event.preventDefault()
+                alert('Nog niet alle velden zijn ingevuld');
+            }
+        });
+    })
 }
 checkFieldLength();
 
