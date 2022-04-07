@@ -76,7 +76,8 @@ input[type="date"] {
 }
 
 input[type="text"],
-fieldset div,
+fieldset div:first-of-type,
+fieldset div:nth-of-type(2) label,
 textarea {
     margin-bottom: clamp(0.75rem, 1.395vw, 1.3rem);
 }
@@ -90,6 +91,7 @@ fieldset div:first-of-type>* {
 }
 
 fieldset div:nth-of-type(2) label {
+    display: inline-block;
     cursor: pointer;
     border: 1.5px solid #AC3B61;
     padding: 0.05rem 0.4rem;
@@ -283,7 +285,7 @@ select {
     }
     
     input[type="text"],
-    fieldset div,
+    fieldset div label,
     textarea {
         margin-bottom: 0.75rem;
     }
