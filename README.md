@@ -16,8 +16,13 @@ My project started off with creating a wireflow for my website. I started to thi
 
 With the ideas in mind, I started coding. We got the assignment to implement as much progressive enhancement as we could. Therefore, I also decided to begin with the core functionalities of my website. This was just pure HTML. After the core functionalities, I then added my styling to make the website more usable. After that, I added my Javacript to the website to make it more pleasurable to use. At last, I tested my website on different browsers and added feature detection as well.
 
+_Home page_
 ![Home page](https://github.com/dannyfrelink/enquete-minor/blob/main/images/home-screen-styling.png)
+
+_Subject page_
 ![Subject page](https://github.com/dannyfrelink/enquete-minor/blob/main/images/subject1-styling.png)
+
+_Success page_
 ![Success page](https://github.com/dannyfrelink/enquete-minor/blob/main/images/success-page-styling.png)
 
 ## ⚙️ Process (Wiki)
