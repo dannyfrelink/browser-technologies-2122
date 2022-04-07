@@ -3,10 +3,6 @@
     padding: 0;
 }
 
-br {
-    display: none;
-}
-
 body::before {
     content: '';
     background-color: bisque;
@@ -46,8 +42,6 @@ p, legend {
 fieldset {
     max-width: 50rem;
     text-align: left;
-    display: flex;
-    flex-direction: column;
     border: 1.5px solid #AC3B61;
     border-radius: 0.5rem;
     margin: clamp(2rem, 3.72vw, 3.14rem) auto 0;
@@ -125,9 +119,6 @@ textarea {
 
 form>div {
     max-width: 55rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     margin: clamp(0.75rem, 1.395vw, 1.3rem) auto;
 }
 
@@ -154,8 +145,6 @@ button::after {
 
 button,
 a {
-    display: flex;
-    align-items: center;
     font-size: clamp(120%, 2.2vw, 1.5rem);
     font-weight: bold;
     text-decoration: none;
@@ -215,12 +204,6 @@ input[type="submit"]:hover, input[type="submit"]:focus,
     color: bisque;
 }
 
-main {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
 select {
     width: 50vw;
     max-width: 15rem;
@@ -234,9 +217,32 @@ select {
     display: none;
 }
 
-@supports (not (display: flex)) or (not (flex-direction: column)) {
+@supports (display: flex) {
     br {
-        display: block;
+        display: none;
+    }
+
+    fieldset {
+        display: flex;
+        flex-direction: column;
+    }
+
+    form>div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    button,
+    a {
+        display: flex;
+        align-items: center;
+    }
+
+    main {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
     }
 }
 
