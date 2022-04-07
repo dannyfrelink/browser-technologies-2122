@@ -55,6 +55,13 @@ function checkDates() {
             alert('Begindatum is na de einddatum');
         })
     }
+    else {
+        return form.removeEventListener('submit', function (e) {
+            e.preventDefault()
+            hideLoader()
+            alert('Begindatum is na de einddatum');
+        })
+    }
 }
 
 if (inputDate1 && inputDate2) {
