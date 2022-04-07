@@ -27,14 +27,14 @@ const checkFieldLength = () => {
         });
     })
 }
-if(forEach) {
+if(document.body.forEach) {
     checkFieldLength();
 }
 
 const showLoaders = () => {
     if(button && loader) {
         button.addEventListener('click', () => {
-            if (classList) {
+            if (document.body.classList) {
                 loader.classList.remove('hidden');
             }
             else {
