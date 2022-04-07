@@ -4,8 +4,6 @@ var form = document.querySelector('form');
 
 var inputDate1 = document.querySelector('input[type="date"]:first-of-type');
 var inputDate2 = document.querySelector('input[type="date"]:last-of-type');
-var date1 = new Date(inputDate1.value);
-var date2 = new Date(inputDate2.value);
 
 var button = document.querySelector('button');
 var loader = document.querySelector('#loader');
@@ -16,17 +14,30 @@ var changeAnswersLabel = document.querySelector('main label');
 var changeAnswersSelect = document.querySelector('select');
 var changeAnswersButton = document.querySelector('#change_answers_button');
 
+function hideLoader() {
+    if(loader) {
+        if (document.body.classList) {
+            return loader.classList.add('hidden');
+        }
+        else {
+            return loader.style.display = 'none';
+        }
+    }
+}
+
 function checkFieldLength() {
-    form.addEventListener('submit', function(event) {
+    form.addEventListener('submit', function(e) {
         for (var i = 0; i < inputs.length; i++) {
             if (inputs[i].value.length == 0) {
-                event.preventDefault()
+                e.preventDefault()
+                hideLoader()
                 alert('Nog niet alle velden zijn ingevuld');
             }
         }
         for (var i = 0; i < textareas.length; i++) {
             if (textareas[i].value.length == 0) {
-                event.preventDefault()
+                e.preventDefault()
+                hideLoader()
                 alert('Nog niet alle velden zijn ingevuld');
             }
         }
@@ -38,12 +49,16 @@ function checkDates() {
     if(date1.getTime() > date2.getTime()) {
         return form.addEventListener('submit', function(e) {
             e.preventDefault()
+            hideLoader()
             alert('Begindatum is na de einddatum');
         })
     }
 }
 
 if(inputDate1 && inputDate2) {
+    var date1 = new Date(inputDate1.value);
+    var date2 = new Date(inputDate2.value);
+
     inputDate1.addEventListener('change', function() {
         date1 = new Date(inputDate1.value)
         checkDates()
