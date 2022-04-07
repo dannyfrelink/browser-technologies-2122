@@ -1,39 +1,37 @@
-const inputs = document.querySelectorAll('input');
-const textareas = document.querySelectorAll('textarea');
-const form = document.querySelector('form');
+var inputs = document.querySelectorAll('input');
+var textareas = document.querySelectorAll('textarea');
+var form = document.querySelector('form');
 
-const button = document.querySelector('button');
-const loader = document.querySelector('#loader');
-const anchor = document.querySelector('a');
-const loaderBack = document.querySelector('#loader_back');
+var button = document.querySelector('button');
+var loader = document.querySelector('#loader');
+var anchor = document.querySelector('a');
+var loaderBack = document.querySelector('#loader_back');
 
-const changeAnswersLabel = document.querySelector('main label');
-const changeAnswersSelect = document.querySelector('select');
-const changeAnswersButton = document.querySelector('#change_answers_button');
+var changeAnswersLabel = document.querySelector('main label');
+var changeAnswersSelect = document.querySelector('select');
+var changeAnswersButton = document.querySelector('#change_answers_button');
 
-const checkFieldLength = () => {
-    form.addEventListener('submit', (event) => {
-        inputs.forEach(input => {
-            if (input.value.length == 0) {
+function checkFieldLength() {
+    form.addEventListener('submit', function(event) {
+        for (var i = 0; i < inputs.length; i++) {
+            if (inputs[i].value.length == 0) {
                 event.preventDefault()
                 alert('Nog niet alle velden zijn ingevuld');
             }
-        })
-        textareas.forEach(textarea => {
-            if (textarea.value.length == 0) {
+        }
+        for (var i = 0; i < textareas.length; i++) {
+            if (textareas[i].value.length == 0) {
                 event.preventDefault()
                 alert('Nog niet alle velden zijn ingevuld');
             }
-        });
+        }
     })
 }
-if(document.body.forEach) {
-    checkFieldLength();
-}
+checkFieldLength();
 
-const showLoaders = () => {
+function showLoaders() {
     if(button && loader) {
-        button.addEventListener('click', () => {
+        button.addEventListener('click', function() {
             if (document.body.classList) {
                 loader.classList.remove('hidden');
             }
@@ -44,8 +42,8 @@ const showLoaders = () => {
     }
 
     if(anchor && loaderBack) {
-        anchor.addEventListener('click', () => {
-            if (classList) {
+        anchor.addEventListener('click', function() {
+            if (document.body.classList) {
                 loaderBack.classList.remove('hidden');
             }
             else {
@@ -57,7 +55,7 @@ const showLoaders = () => {
 showLoaders();
 
 if(changeAnswersSelect) {
-    if(classList) {
+    if(document.body.classList) {
         changeAnswersLabel.classList.remove('hidden');
         changeAnswersSelect.classList.remove('hidden');
     }
@@ -68,7 +66,7 @@ if(changeAnswersSelect) {
 
     changeAnswersButton.setAttribute('href', changeAnswersSelect.value);
 
-    changeAnswersSelect.addEventListener('change', () => {
+    changeAnswersSelect.addEventListener('change', function() {
         changeAnswersButton.setAttribute('href', changeAnswersSelect.value);
     });
 }
