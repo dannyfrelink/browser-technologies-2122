@@ -47,20 +47,18 @@ if (form) {
     checkFieldLength();
 }
 
+function alertInvalidDates(e) {
+    e.preventDefault()
+    hideLoader()
+    alert('Begindatum is na de einddatum');
+}
+
 function checkDates() {
-    if (date1.getTime() > date2.getTime()) {
-        return form.addEventListener('submit', function (e) {
-            e.preventDefault()
-            hideLoader()
-            alert('Begindatum is na de einddatum');
-        })
+    if (date1.getTime() >= date2.getTime()) {
+        return form.addEventListener('submit', alertInvalidDates);
     }
-    else {
-        return form.removeEventListener('submit', function (e) {
-            e.preventDefault()
-            hideLoader()
-            alert('Begindatum is na de einddatum');
-        })
+    else if (date2.getTime() > date1.getTime()) {
+        return form.removeEventListener('submit', alertInvalidDates);
     }
 }
 
