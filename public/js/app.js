@@ -15,7 +15,7 @@ var changeAnswersSelect = document.querySelector('select');
 var changeAnswersButton = document.querySelector('#change_answers_button');
 
 function hideLoader() {
-    if(loader) {
+    if (loader) {
         if (document.body.classList) {
             return loader.classList.add('hidden');
         }
@@ -26,7 +26,7 @@ function hideLoader() {
 }
 
 function checkFieldLength() {
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', function (e) {
         for (var i = 0; i < inputs.length; i++) {
             if (inputs[i].value.length == 0) {
                 e.preventDefault()
@@ -43,11 +43,13 @@ function checkFieldLength() {
         }
     })
 }
-checkFieldLength();
+if (form) {
+    checkFieldLength();
+}
 
 function checkDates() {
-    if(date1.getTime() > date2.getTime()) {
-        return form.addEventListener('submit', function(e) {
+    if (date1.getTime() > date2.getTime()) {
+        return form.addEventListener('submit', function (e) {
             e.preventDefault()
             hideLoader()
             alert('Begindatum is na de einddatum');
@@ -55,24 +57,24 @@ function checkDates() {
     }
 }
 
-if(inputDate1 && inputDate2) {
+if (inputDate1 && inputDate2) {
     var date1 = new Date(inputDate1.value);
     var date2 = new Date(inputDate2.value);
 
-    inputDate1.addEventListener('change', function() {
+    inputDate1.addEventListener('change', function () {
         date1 = new Date(inputDate1.value)
         checkDates()
     })
-    
-    inputDate2.addEventListener('change', function(e) {
+
+    inputDate2.addEventListener('change', function (e) {
         date2 = new Date(inputDate2.value)
         checkDates()
     })
 }
 
 function showLoaders() {
-    if(button && loader) {
-        button.addEventListener('click', function() {
+    if (button && loader) {
+        button.addEventListener('click', function () {
             if (document.body.classList) {
                 loader.classList.remove('hidden');
             }
@@ -82,8 +84,8 @@ function showLoaders() {
         });
     }
 
-    if(anchor && loaderBack) {
-        anchor.addEventListener('click', function() {
+    if (anchor && loaderBack) {
+        anchor.addEventListener('click', function () {
             if (document.body.classList) {
                 loaderBack.classList.remove('hidden');
             }
@@ -95,8 +97,8 @@ function showLoaders() {
 }
 showLoaders();
 
-if(changeAnswersSelect) {
-    if(document.body.classList) {
+if (changeAnswersSelect) {
+    if (document.body.classList) {
         changeAnswersLabel.classList.remove('hidden');
         changeAnswersSelect.classList.remove('hidden');
     }
@@ -107,7 +109,7 @@ if(changeAnswersSelect) {
 
     changeAnswersButton.setAttribute('href', changeAnswersSelect.value);
 
-    changeAnswersSelect.addEventListener('change', function() {
+    changeAnswersSelect.addEventListener('change', function () {
         changeAnswersButton.setAttribute('href', changeAnswersSelect.value);
     });
 }
