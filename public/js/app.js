@@ -27,26 +27,45 @@ const checkFieldLength = () => {
         });
     })
 }
-checkFieldLength();
+if(forEach) {
+    checkFieldLength();
+}
 
 const showLoaders = () => {
     if(button && loader) {
         button.addEventListener('click', () => {
-            loader.classList.remove('hidden');
+            if (classList) {
+                loader.classList.remove('hidden');
+            }
+            else {
+                loader.style.display = 'block';
+            }
         });
     }
 
     if(anchor && loaderBack) {
         anchor.addEventListener('click', () => {
-            loaderBack.classList.remove('hidden');
+            if (classList) {
+                loaderBack.classList.remove('hidden');
+            }
+            else {
+                loaderBack.style.display = 'block';
+            }
         });
     }
 }
 showLoaders();
 
 if(changeAnswersSelect) {
-    changeAnswersLabel.classList.remove('hidden');
-    changeAnswersSelect.classList.remove('hidden');
+    if(classList) {
+        changeAnswersLabel.classList.remove('hidden');
+        changeAnswersSelect.classList.remove('hidden');
+    }
+    else {
+        changeAnswersLabel.style.display = 'block';
+        changeAnswersSelect.style.display = 'block';
+    }
+
     changeAnswersButton.setAttribute('href', changeAnswersSelect.value);
 
     changeAnswersSelect.addEventListener('change', () => {
