@@ -98,9 +98,10 @@ fieldset div:nth-of-type(2) label {
 }
 
 input[type="radio"] {
-    display: none;
+    opacity: 0;
 }
 
+input[type="radio"]:focus+label,
 input[type="radio"]:checked+label {
     background-color: #AC3B61;
     color: bisque;
